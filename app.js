@@ -1,10 +1,18 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
 var app = express();
 
 const port = process.env.PORT || 3000;
 
+// use sessions
+
+app.use(session({
+  secret: 'coding is fun',
+  resave: true,
+  saveUninitialized: false
+}));
 
 
 // mongodb connection
