@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "animejs": "^2.0.2",
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.13.3",
     "express": "^4.13.4",
     "mongoose": "^4.9.5",
