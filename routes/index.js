@@ -90,11 +90,6 @@ router.post('/login', function(req, res, next) {
 });
 
 
-
-
-
-
-
 // GET /
 router.get('/', function(req, res, next) {
   var students = 17;
