@@ -1,2 +1,2 @@
-# User Authentication With Express and Mongo
-Project code to support the [Treehouse](https://teamtreehouse.com) course [User Authentication With Express and Mongo](https://teamtreehouse.com/library/user-authentication-with-express-and-mongo)
+# CIS Community App
+A project made for PCVV students to connect, ask questions, and find new development opportunities.
