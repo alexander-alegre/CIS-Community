@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 mongoose.connect(`mongodb://localhost:27017/cisc` || process.env.MONGODB_URI);
 var db = mongoose.connection;
 // errors
-// db.on('error', console.log('errors:'));
+
 
 
 

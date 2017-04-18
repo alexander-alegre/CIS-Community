@@ -156,8 +156,8 @@ a:hover {
 	}
 }
 
-/* custom styles*/
-
-/*.resources {
-	margin: 10px;
-}*/
+.totalStudents {
+	border: 1px solid #D9EDF7;
+	padding: 30px;
+	
+}

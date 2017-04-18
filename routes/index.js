@@ -90,9 +90,15 @@ router.post('/login', function(req, res, next) {
 });
 
 
+
+
+
+
+
 // GET /
 router.get('/', function(req, res, next) {
-  return res.render('index', { title: 'Home' });
+  var students = 17;
+  return res.render('index', { title: 'Home', totalStudents: students });
 });
 
 // GET /about
