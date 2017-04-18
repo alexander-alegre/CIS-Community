@@ -2,10 +2,13 @@
   "name": "treehouse-express-auth",
   "version": "1.0.0",
   "description": "A project for learning how to add authentication to a web application.",
-  "author": "Treehouse Island, Inc.",
+  "author": "Alexander Alegre",
   "private": true,
   "scripts": {
     "start": "node ./app"
+  },
+  "engines": {
+    "node": "6.2.2"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
