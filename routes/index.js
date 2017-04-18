@@ -1,5 +1,48 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
+
+// GET register
+router.get('/register', function (req, res, next) {
+  return res.render('register', {title: 'Sign Up'});
+});
+// POST register
+router.post('/register', function (req, res, next) {
+  if (req.body.email &&
+    req.body.name &&
+    req.body.favoriteLanguage &&
+    req.body.password &&
+    req.body.confirmPassword) {
+      // validate both passwords
+      if (req.body.password !== req.body.confirmPassword) {
+        var err = new Error('Passwords do not match');
+        err.status = 400;
+        return next(err);
+      }
+
+      // create object with form input
+      var userData = {
+        email: req.body.email,
+        name: req.body.name,
+        favoriteLanguage: req.body.favoriteLanguage,
+        password: req.body.password
+      };
+
+      // insert into db
+      User.create(userData, (error, user) => {
+        if (error) {
+          return next(error);
+        } else {
+          return res.redirect('/profile');
+        }
+      });
+
+  } else {
+    var err = new Error('All fields are required.');
+    err.status = 400;
+    return next(err);
+  }
+});
 
 // GET /
 router.get('/', function(req, res, next) {

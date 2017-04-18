@@ -1,7 +1,19 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var app = express();
+
 const port = process.env.PORT || 3000;
+
+
+
+// mongodb connection
+mongoose.connect(`mongodb://localhost:27017/cisc` || process.env.MONGODB_URI);
+var db = mongoose.connection;
+// errors
+// db.on('error', console.log('errors:'));
+
+
 
 // parse incoming requests
 app.use(bodyParser.json());
@@ -35,7 +47,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
 // listen on port 3000
 app.listen(port, function () {
   console.log(`Express app listening on http://localhost:${port}/`);
 });
+//  start mongo -> mongo/bin/mongod --dbpath ~/mongo-data/
