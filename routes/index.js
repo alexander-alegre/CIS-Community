@@ -127,8 +127,7 @@ router.post('/login', function(req, res, next) {
 
 // GET /
 router.get('/', function(req, res, next) {
-  var students = 17;
-  return res.render('index', { title: 'Home', totalStudents: students });
+  return res.render('index', { title: 'Home' });
 });
 
 // GET /about
