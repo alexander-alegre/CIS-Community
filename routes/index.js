@@ -2,6 +2,41 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 
+
+
+// GET /resources
+router.get('/resources', function(req, res, next) {
+  if (!req.session.userId) {
+    // return res.redirect('/login');
+    var err = new Error('You are not authorized to view this page');
+    err.status = 403;
+    return next(err);
+  }
+  User.findById(req.session.userId)
+    .exec(function (error, user) {
+      if (error) {
+        return next(error);
+      } else {
+        return res.render('resources', {title: 'Resources'});
+      }
+    });
+});
+
+// GET /logout
+router.get('/logout', function(req, res, next) {
+  if (req.session) {
+    // delete session
+    req.session.destroy(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  }
+});
+
+
 // GET /profile
 router.get('/profile', function(req, res, next) {
   if (!req.session.userId) {
